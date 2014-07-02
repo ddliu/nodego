@@ -1,0 +1,19 @@
+{
+  "name": "builder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp": "~3.8.5",
+    "request": "~2.36.0",
+    "gulp-remote-src": "~0.2.0",
+    "gulp-clean": "~0.3.1",
+    "gulp-uglify": "~0.3.1",
+    "gulp-gobin": "~0.1.2"
+  }
+}
