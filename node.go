@@ -20,9 +20,20 @@ func NewEnvironment() *Environment {
     }
 }
 
-type ModuleInitialize func (vm *otto.Otto) otto.Value
+type ModuleLoader func (vm *otto.Otto) otto.Value
+
+var modules = make(map[string]ModuleLoader)
 
 // NODE_MODULE(module_name, Initialize)
-func NodeModule(name string, init ModuleInitialize) {
+func NodeModule(name string, loader ModuleLoader) {
+    modules[name] = loader
+}
 
+func ThrowError(vm *otto.Otto, errorType, msg string) {
+    value, _ := vm.Call("new " + errorType, nil, msg)
+    panic(value)
+}
+
+func ThrowTypeError(vm *otto.Otto, msg string) {
+    ThrowError(vm, "TypeError", msg)
 }

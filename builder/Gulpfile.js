@@ -48,7 +48,7 @@ var FILES = [
     "lib/zlib.js"
 ];
 
-var URL = "https://raw.githubusercontent.com/joyent/node/v0.10.29/"
+var URL = "https://raw.githubusercontent.com/joyent/node/v0.11.13/"
 
 gulp.task('bindata', function() {
     return remoteSrc(FILES, {base: URL})

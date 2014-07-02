@@ -1,6 +1,6 @@
 # nodego
 
-Node.js in golang (experimental, based on node [v0.10.29](https://github.com/joyent/node/tree/v0.10.29)).
+Node.js in golang (experimental, based on node [v0.11.13](https://github.com/joyent/node/tree/v0.11.13)).
 
 ## Progress
 

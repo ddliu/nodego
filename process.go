@@ -31,6 +31,7 @@ func NewProcess(vm *otto.Otto) *otto.Object {
     process, _ := vm.Object(`({})`)
     process.Set("env", getEnv())
     process.Set("argv", os.Args)
+    process.Set("binding", binding)
 
     return process
 }
@@ -50,4 +51,14 @@ func getEnv() map[string]string {
     }
 
     return env
+}
+
+func binding(call otto.FunctionCall) otto.Value {
+    name := call.Argument(0).String()
+    loader, ok := modules[name]
+    if !ok {
+        ThrowError(call.Otto, "Error", "Binding not found: " + name)
+    }
+
+    return loader(call.Otto)
 }
